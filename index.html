@@ -2,9 +2,10 @@
 <html>
 <title>NIMBY 8 Ball</title>
 <script src="jquery-2.2.3.min.js"></script>
+<script src="jquery-ui.min.js"></script>
 <script>
 <!--
-$(document).ready(function() {
+function shake() {
     var reasons = [
       "Neighborhood Character",
       "Shadows",
@@ -18,31 +19,62 @@ $(document).ready(function() {
       "View corridors"
     ];
     var reason = reasons[Math.floor(Math.random() * reasons.length)];
-    $("#ball h2").text(reason);
+    $("#ball h2").fadeOut(200, function() {
+        $("#ball h2").text(reason);
+        $("#ball").effect("shake", {direction: "up", complete: function() {
+            $("#ball h2").fadeIn(1000);
+        }});
+    });
+}
+$(document).ready(function() {
+    shake();
+    $(document).click(shake);
 });
 -->
 </script>
+<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
 <style type="text/css">
+html {
+  font-family: sans-serif;
+  height: 100%;
+  background: rgb(68,68,68); /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, rgba(68,68,68,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(68,68,68,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center, rgba(68,68,68,1) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+h1 {
+  font-family: 'Satisfy', cursive;
+  transform: rotate(-5deg);
+  font-size: 48pt;
+  color: #fff;
+  transform-origin: center center;
+  top: 0;
+  position: absolute;
+}
+
 #ball {
   margin: auto;
   background: url(8ball.png) no-repeat center center;
-  background-size: 320px 320px;
-  height: 320px;
-  width: 320px;
+  background-size: 420px 420px;
+  height: 420px;
+  width: 420px;
 }
 
 #ball h2 {
   color: #fff;
   text-align: center;
   padding-top: 50%;
-  width: 120px;
+  width: 220px;
   margin: auto;
+  display: none;
 }
 </style>
 <body>
-
-<h1>NIMBY 8 Ball</h1>
 <div id="ball">
+  <h1>NIMBY 8 Ball</h1>
   <h2></h2>
 </div>
 </body>
