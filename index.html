@@ -3,6 +3,7 @@
 <title>NIMBY 8 Ball</title>
 <script src="jquery-2.2.3.min.js"></script>
 <script src="jquery-ui.min.js"></script>
+<script src="shake.js"></script>
 <script>
 <!--
 function shake() {
@@ -30,6 +31,10 @@ $(document).ready(function() {
     shake();
     $(document).click(shake);
 });
+
+var s = new Shake();
+window.addEventListener('shake', shake, false);
+s.start();
 -->
 </script>
 <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
