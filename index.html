@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<title>NIMBY 8 Ball</title>
+<script src="jquery-2.2.3.min.js"></script>
+<script>
+<!--
+$(document).ready(function() {
+    var reasons = [
+      "Neighborhood Character",
+      "Shadows",
+      "Gentrification",
+      "Not enough affordable housing",
+      "Too much affordable housing",
+      "Chinese capital",
+      "Trickle down",
+      "Donald Dewsnup",
+      "Developer shills",
+      "View corridors"
+    ];
+    var reason = reasons[Math.floor(Math.random() * reasons.length)];
+    $("#ball h2").text(reason);
+});
+-->
+</script>
+<style type="text/css">
+#ball {
+  margin: auto;
+  background: url(8ball.png) no-repeat center center;
+  background-size: 320px 320px;
+  height: 320px;
+  width: 320px;
+}
+
+#ball h2 {
+  color: #fff;
+  text-align: center;
+  padding-top: 50%;
+  width: 120px;
+  margin: auto;
+}
+</style>
+<body>
+
+<h1>NIMBY 8 Ball</h1>
+<div id="ball">
+  <h2></h2>
+</div>
+</body>
+</html>
